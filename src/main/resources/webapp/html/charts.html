@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class='splash'>
+
+<head>
+<title>Charts and javafx</title>
+<link href='../styles/styles.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+	<!-- dependencies -->
+	<script type='text/javascript' src='../js/dependencies/d3.v3.min.js'></script>
+	<script type='text/javascript'
+		src='../js/dependencies/jquery-latest.js'></script>
+	<script type='text/javascript' src='../js/plotly.min.js'></script>
+
+	<p id=uid></p>
+
+	<script type='text/javascript'>
+		$(function() {
+			'use strict';
+
+			console.log('Starting javascript')
+
+			/*
+			 *****************************************************************************************************
+			// Plotly.js 
+			 *****************************************************************************************************
+			 */
+
+			// Class params
+			var params = {}, xArray = [], yArray = [], yTrack = [], feedback = [], numPts = 10, delay = 60, lastPt = numPts - 1, x, i, playInterval;
+
+			// Initialize charts
+			function initializeChart() {
+				// For all the points, move x Axis and initialize to 0
+				for (i = 0; i < numPts; i++) {
+					xArray.push(i);
+					yTrack.push(0);
+					feedback.push(0);
+				}
+				x = xArray[lastPt];
+			}
+
+			initializeChart();
+
+			// Data of each DataViewer ( trace1, trace2 , ... , trace N)
+			var data = [ {} ];
+
+			/*
+			 *****************************************************************************************************
+			// Layout
+			 *****************************************************************************************************
+			 */
+			// Layout of the plots
+			var layout = {
+				legend : {
+					bgcolor : 'rgba(102, 102, 102, 0.07)',
+					bordercolor : 'rgba(0, 0, 0, 0)',
+					x : 0,
+					y : 1,
+					traceorder : 'normal'
+				//xanchor: 'center',
+				//yanchor: 'middle'
+				},
+				xaxis : {
+					title : 'Not initialized',
+					range : []
+				},
+				yaxis : {
+					title : 'Not initialized',
+					range : []
+				},
+
+				/* xaxis2 : {
+					 'domain' : []
+				},
+				yaxis2 : {
+					'domain' : []
+				}, */
+
+				hovermode : 'closest',
+				bargap : 0,
+
+				showlegend : false,
+				margin : {
+					l : 40,
+					r : 30,
+					b : 60,
+					t : 90,
+					pad : 4
+				},
+				title : 'Not initialized'
+			};
+
+			// Responsive Configuration
+			var gd3 = d3.select('body').style({
+				width : '100%',
+				'margin-right' : '80px',
+				'height' : '100vh',
+			});
+			var streamPlot = gd3.node();
+			window.onresize = function() {
+				Plotly.Plots.resize(streamPlot);
+			};
+
+			// Plot the data.
+			Plotly.plot(streamPlot, data, layout, {
+				displaylogo : false
+			});
+
+			/*
+			 *****************************************************************************************************
+			// Update configuration
+			 *****************************************************************************************************
+			 */
+			function updatePlotConfiguration(newConfig) {
+				console.log('Updating configuration');
+
+				layout.title = newConfig.plotTitle;
+				layout.xaxis.title = newConfig.xAxisTitle;
+				layout.yaxis.title = newConfig.yAxisTitle;
+
+				layout.margin.l = newConfig.marginLeft;
+				layout.margin.r = newConfig.marginRight;
+				layout.margin.t = newConfig.marginTop;
+				layout.margin.b = newConfig.marginBottom;
+				layout.margin.pad = newConfig.padding;
+
+				layout.showlegend = newConfig.showlegend;
+				layout.legend.x = newConfig.legendXaxis;
+				layout.legend.y = newConfig.legendYaxis;
+
+				layout.xaxis.type = newConfig.xAxisType;
+				layout.yaxis.type = newConfig.yAxisType;
+
+				if (!(newConfig.xRange[0] == 0.0 && newConfig.xRange[1] == 0.0))
+					layout['xaxis'] = {
+						'range' : newConfig.xRange
+					};
+				if (!(newConfig.yRange[0] == 0.0 && newConfig.yRange[1] == 0.0))
+					layout['yaxis'] = {
+						'range' : newConfig.yRange
+					};
+
+				if (!(newConfig.xRange2[0] == 0.0 && newConfig.xRange2[1] == 0.0))
+					layout['xaxis2'] = {
+						'domain' : newConfig.xRange2
+					};
+
+				if (!(newConfig.yRange2[0] == 0.0 && newConfig.yRange2[1] == 0.0))
+					layout['yaxis2'] = {
+						'domain' : newConfig.yRange2
+					};
+
+				console.log('newConfig.yRange[0] , newConfig.yRange[1]'
+						+ newConfig.yRange[0] + newConfig.yRange[1])
+				console.log('yaxis domain is : ' + layout['yaxis'].domain)
+				Plotly.redraw(streamPlot);
+			}
+
+			/*
+			 *****************************************************************************************************
+			// Update Plot (traces)
+			 *****************************************************************************************************
+			 */
+			function updatePlot(plotsArray) {
+				console.log('Updating Plot Data');
+				//sendToServer('Updating Plot Data');
+				console.log('plotsArray is : ' + plotsArray);
+				var found = false;
+
+				for (var i = 0; i < plotsArray.length; i++) {
+					//sendToServer('UID__ =' + plotsArray[i].uid);
+
+					// If boolean ,onvert to boolean, else keep it as a string
+					if (plotsArray[i].traceConfig.traceVisibility === 'true'
+							|| plotsArray[i].traceConfig.traceVisibility === 'false') {
+						plotsArray[i].traceConfig.traceVisibility = (plotsArray[i].traceConfig.traceVisibility === 'true');
+					}
+
+					for (var j = 0; j < data.length; j++) {
+						if (data[j].uid == plotsArray[i].uid) {
+							data[j].line = {
+								color : plotsArray[i].traceConfig.traceColour
+							};
+							data[j].name = plotsArray[i].traceConfig.traceName;
+							data[j].mode = plotsArray[i].traceConfig.traceMode;
+							data[j].x = plotsArray[i].xArray;
+							data[j].y = plotsArray[i].yArray;
+							data[j].z = plotsArray[i].zArray;
+							data[j].xaxis = plotsArray[i].xAxis;
+							data[j].yaxis = plotsArray[i].yAxis;
+
+							data[j].visible = plotsArray[i].traceConfig.traceVisibility;
+
+							data[j].type = plotsArray[i].traceConfig.traceType;
+							found = true;
+						}
+					}
+					if (!found) {
+
+						data
+								.push({
+									uid : plotsArray[i].uid,
+									line : {
+										color : plotsArray[i].traceConfig.traceColour
+									},
+									name : plotsArray[i].traceConfig.traceName,
+									mode : plotsArray[i].traceConfig.traceMode,
+									x : plotsArray[i].xArray,
+									y : plotsArray[i].yArray,
+									z : plotsArray[i].zArray,
+
+									xaxis : plotsArray[i].xAxis,
+									yaxis : plotsArray[i].yAxis,
+
+									visible : plotsArray[i].traceConfig.traceVisibility,
+
+									type : plotsArray[i].traceConfig.traceType
+								});
+					}
+				}
+
+				Plotly.redraw(streamPlot);
+			}
+
+			function resetPlot() {
+				console.log('Reseting plot');
+				//sendToServer('RESETING PLOT__');
+				data = [ {} ];
+				Plotly.newPlot(streamPlot, data, layout, {
+					displaylogo : false
+				});
+			}
+
+			/*
+			 *****************************************************************************************************
+			// Websockets
+			 *****************************************************************************************************
+			 */
+			var connectURL = 'ws://localhost:8090/charts/0';
+			console.log(connectURL);
+
+			$('#uid').innerHTML = connectURL;
+
+			// establish the communication channel over a websocket
+			var ws = new WebSocket(connectURL);
+
+			// called when socket connection established
+			ws.onopen = function() {
+				console.log('Connected to chart service!');
+				sendToServer('Connected ' + connectURL);
+			};
+
+			// called when a message received from server
+			ws.onmessage = function(evt) {
+				var parsedData = JSON.parse(evt.data);
+
+				switch (parsedData.type) {
+				case 'PAYLOAD':
+					console.log('payload');
+					updatePlot(parsedData.traces);
+					break;
+				case 'CONFIG':
+					updatePlotConfiguration(parsedData);
+					break;
+				case 'RESET':
+					resetPlot();
+					break;
+				default:
+				}
+
+			};
+
+			// called when socket connection closed
+			ws.onclose = function() {
+				console.log('Disconnected from chart service!')
+			};
+
+			// called in case of an error
+			ws.onerror = function(err) {
+				console.log('ERROR!', err)
+			};
+
+			// appends logText to log text area
+			function appendLog(logText) {
+				//var log = document.getElementById('log');
+				//log.value = log.value + logText + '\n'
+			}
+
+			// sends msg to the server over websocket
+			function sendToServer(msg) {
+				ws.send(msg);
+			}
+
+		});
+	</script>
+</body>
+
+</html>

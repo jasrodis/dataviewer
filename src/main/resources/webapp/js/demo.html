@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="splash">
+<head>
+<title>plotly.js docs</title>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,400,300" rel="stylesheet" type="text/css">
+
+<link href="demo_dependencies/prettify.css" type="text/css" media="all" rel="stylesheet" />
+<link href="demo_dependencies/font-awesome.min.css" type="text/css" media="all" rel="stylesheet" />
+<link href="demo_dependencies/api.css" type="text/css" media="all" rel="stylesheet" />
+<link href="demo_dependencies/developers.css" type="text/css" media="all" rel="stylesheet" />
+<link href="demo_dependencies/jsdocs.css" type="text/css" media="all" rel="stylesheet" />
+<link href="demo_dependencies/demo-style.css" type="text/css" media="all" rel="stylesheet" />
+
+</head>
+<body>
+<section id="sec-title" class="section">
+    <div class="plotly-js-banner">
+        <div style="max-width:200px;">
+            <img src="demo_dependencies/errorbars.png">
+        </div>
+        <h1 class="mega banner__text dashboards">
+            plotly.js
+        </h1>
+    </div>
+    <h2 class="gamma heading">
+        Documentation
+    </h2>
+    <div id="jsdocs_loading">
+        <p class="delta heading">Loading...</p>
+    </div>
+</section>
+
+<section id="jsdocs_contents" style="margin-bottom:80px;display:none;">
+    <div class="navcontainer">
+        <div class="chartgroup-label">
+            Base
+        </div>
+        <div class="chartgroup">
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Line Plots</a></li>
+                <li><a href="#" data-divid="lineplot">Basic</a></li>
+                <li><a href="#" data-divid="multiline">Multiple</a></li>
+                <li><a href="#" data-divid="timeseries">Date Axis</a></li>
+                <li><a href="#" data-divid="logplot">Log Axis</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Scatter Plots</a></li>
+                <li><a href="#" data-divid="scatter">Basic</a></li>
+                <li><a href="#" data-divid="multiscatter">Multiple</a></li>
+                <li><a href="#" data-divid="markers">Symbols</a></li>
+                <li><a href="#" data-divid="bubble">Bubble</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Bar Charts</a></li>
+                <li><a href="#" data-divid="barchart">Basic</a></li>
+                <li><a href="#" data-divid="lineplot">Grouped</a></li>
+                <li><a href="#" data-divid="stackarea">Stacked</a></li>
+                <li><a href="#" data-divid="horizontalbar">Horizontal</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Area Plots</a></li>
+                <li><a href="#" data-divid="overlaidarea">Grouped</a></li>
+                <li><a href="#" data-divid="stackarea">Stacked</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Annotations</a></li>
+                <li><a href="#" data-divid="basicanno">Basic</a></li>
+                <li><a href="#" data-divid="annosymbols">Symbols</a></li>
+                <li><a href="#" data-divid="annocaption">Captions</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Legends</a></li>
+                <li><a href="#" data-divid="poslegendin">Inside Plot</a></li>
+                <li><a href="#" data-divid="poslegendout">Outside Plot</a></li>
+                <li><a href="#" data-divid="stylelegend">Styling</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Fully Styled</a></li>
+                <li><a href="#" data-divid="diffraction">Diffraction</a></li>
+                <li><a href="#" data-divid="us_exports">US Exports</a></li>
+                <li><a href="#" data-divid="prognostics">Prognostics</a></li>
+            </ul>
+        </div>
+
+        <div class="chartgroup-label">
+            Custom Interaction
+        </div>
+        <div class="chartgroup">
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Callbacks</a></li>
+                <li><a href="#" data-divid="clickcallback">Click</a></li>
+                <li><a href="#" data-divid="hovercallback">Hover</a></li>
+                <li><a href="#" data-divid="manualhover">Trigger</a></li>
+                <li><a href="#" data-divid="hideshow">Hide</a></li>
+                <li><a href="#" data-divid="zoomcallback">Zoom</a></li>
+            </ul>
+        </div>
+
+        <div class="chartgroup-label">
+            Extra Axes
+        </div>
+        <div class="chartgroup">
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Subplots I</a></li>
+                <li><a href="#" data-divid="indiaxes">Independent Axes</a></li>
+                <li><a href="#" data-divid="coupledaxes">Coupled Axes</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Subplots II</a></li>
+                <li><a href="#" data-divid="verticallystacked">Vertically Stacked</a></li>
+                <li><a href="#" data-divid="insets">Insets</a></li>
+                <li><a href="#" data-divid="twodhistogram">Histograms</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Multiple Axes</a></li>
+                <li><a href="#" data-divid="doubleyaxis">Double Y-Axis</a></li>
+                <li><a href="#" data-divid="multiaxes">Multiple Y-Axis</a></li>
+            </ul>
+        </div>
+
+        <div class="chartgroup-label">
+            Statistics
+        </div>
+        <div class="chartgroup">
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Box Plots</a></li>
+                <li><a href="#" data-divid="boxplot">Basic</a></li>
+                <li><a href="#" data-divid="jitter">Jitter</a></li>
+                <li><a href="#" data-divid="boxstyle">Styling</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Error Bars</a></li>
+                <li><a href="#" data-divid="ebarline">Line Plots</a></li>
+                <li><a href="#" data-divid="ebarbar">Bar Charts</a></li>
+                <li><a href="#" data-divid="ebarstyle">Styling</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Histograms</a></li>
+                <li><a href="#" data-divid="histogram">Basic</a></li>
+                <li><a href="#" data-divid="overhist">Overlaid</a></li>
+                <li><a href="#" data-divid="stackhist">Stacked</a></li>
+            </ul>
+        </div>
+
+        <div class="chartgroup-label">
+            Heatmaps
+        </div>
+        <div class="chartgroup">
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Heatmaps</a></li>
+                <li><a href="#" data-divid="heatmap">Basic</a></li>
+                <li><a href="#" data-divid="datesheatmap">Date Axis</a></li>
+                <li><a href="#" data-divid="logheata">Log Axis</a></li>
+                <li><a href="#" data-divid="colorheatmap">Colors</a></li>
+            </ul>
+        </div>
+
+        <div class="chartgroup-label">
+            3D
+        </div>
+        <div class="chartgroup">
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">3D</a></li>
+                <li><a href="#" data-divid="scatter3d">3D Scatter</a></li>
+                <li><a href="#" data-divid="surface3d">3D Surface</a></li>
+            </ul>
+        </div>
+
+        <div class="chartgroup-label">
+            Geographic maps
+        </div>
+        <div class="chartgroup">
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Scatter maps</a></li>
+                <li><a href="#" data-divid="scattergeomarkers">Markers</a></li>
+                <li><a href="#" data-divid="scattergeolines">Lines</a></li>
+                <li><a href="#" data-divid="scattergeobubbles">Bubbles</a></li>
+            </ul>
+            <ul class="navlist">
+                <li class="lead"><a href="#" class="current">Choropleth</a></li>
+                <li><a href="#" data-divid="choroplethworld">Countries</a></li>
+                <li><a href="#" data-divid="choroplethusa">USA states</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="demo_dependencies/underscore.min.js"></script>
+<script type="text/javascript" src="demo_dependencies/prettify.min.js"></script>
+<script type="text/javascript" src="demo_dependencies/demo.js"></script>
+<script type="text/javascript" src="dependencies/d3.v3.min.js"></script>
+<script type="text/javascript" src="dependencies/jquery-latest.js"></script>
+<script>if(typeof window.Int16Array !== 'function')document.write("<scri"+"pt src='dependencies/typedarray.js'></scr"+"ipt>");</script>
+<script type="text/javascript" src="plotly.min.js"></script>
+
+</body>
+</html>

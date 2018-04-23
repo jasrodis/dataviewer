@@ -70,10 +70,8 @@ public class ChartsOpenedConnections {
 			}
 		}
 
-		if (openedSessions.get(target).isEmpty()) {
-			log.debug("Keeped unsent message for : {}", target);
-			unsentMessagesMap.put(target, payload);
-		}
+		log.debug("Keeped unsent message for : {}", target);
+		unsentMessagesMap.put(target, payload);
 	}
 
 }

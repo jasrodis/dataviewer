@@ -6,12 +6,12 @@
 
 	<groupId>org.charts</groupId>
 	<artifactId>dataviewer</artifactId>
-	<name>jdataviewer</name>
+	<name>dataviewer</name>
 	<packaging>jar</packaging>
 	<version>1.0.0</version>
 	
 	<description>
-    	Dataviewer is an open-source data visualization tool for Java    
+    		Dataviewer is an open-source data visualization tool for Java    
     </description>
   	
   	<inceptionYear>2018</inceptionYear>

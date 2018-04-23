@@ -11,7 +11,7 @@
 			<pattern>%d{HH:mm:ss.SSS} > %28thread %highlight(%-5level) %cyan(%40logger{15}:%4L) %highlight(=>) %msg %n</pattern>
 		</encoder>
 	</appender>
-		<logger name="org.charts.dataviewer" level="DEBUG">
+		<logger name="org.charts.dataviewer" level="INFO">
 			<Appender-Ref ref="STDOUT" />
 		</logger>
 	<root level="DEBUG"/>

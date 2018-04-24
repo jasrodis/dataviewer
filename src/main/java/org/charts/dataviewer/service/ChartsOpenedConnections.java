@@ -25,15 +25,15 @@ public class ChartsOpenedConnections {
 	protected ChartsOpenedConnections() {
 	}
 
-	private Multimap<Integer, Session> openedSessions = ArrayListMultimap.create();
-	private Multimap<Integer, String> unsentMessagesMap = ArrayListMultimap.create();
+	private Multimap<String, Session> openedSessions = ArrayListMultimap.create();
+	private Multimap<String, String> unsentMessagesMap = ArrayListMultimap.create();
 
 	public synchronized void addConnection(ChartServiceWebSocket socket) {
-		Integer udId = socket.getUniqueID();
+		String udId = socket.getUniqueID();
 		log.debug("Adding in multimap : {} ", udId);
 		openedSessions.put(udId, socket.getSession());
 		if (!(unsentMessagesMap.get(socket.getUniqueID()).isEmpty())) {
-			final Multimap<Integer, String> tempMessages = ArrayListMultimap.create(unsentMessagesMap);
+			final Multimap<String, String> tempMessages = ArrayListMultimap.create(unsentMessagesMap);
 			Collection<String> collection = new HashSet<>(tempMessages.get(udId));
 			if (!collection.isEmpty()) {
 				for (Iterator<String> it = collection.iterator(); it.hasNext();) {
@@ -44,7 +44,7 @@ public class ChartsOpenedConnections {
 			}
 
 			// Resend only config messages.
-			final Multimap<Integer, String> tempMessages2 = ArrayListMultimap.create(unsentMessagesMap);
+			final Multimap<String, String> tempMessages2 = ArrayListMultimap.create(unsentMessagesMap);
 			Collection<String> collection2 = new HashSet<>(tempMessages2.get(udId));
 			if (!collection2.isEmpty()) {
 				for (Iterator<String> it = collection2.iterator(); it.hasNext();) {
@@ -61,7 +61,7 @@ public class ChartsOpenedConnections {
 		openedSessions.remove(socket.getUniqueID(), socket.getSession());
 	}
 
-	public void sendMessage(int target, String payload) {
+	public void sendMessage(String target, String payload) {
 		for (Session session : openedSessions.get(target)) {
 			try {
 				session.getRemote().sendString(payload);

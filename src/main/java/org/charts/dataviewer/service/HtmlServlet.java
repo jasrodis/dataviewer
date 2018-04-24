@@ -33,7 +33,7 @@ public class HtmlServlet extends HttpServlet {
 
 	public String createAndGetHtmlFile(HttpServletRequest request) {
 
-		String uidPattern = "/view/(?<!\\d)\\d+(?!\\d)";
+		String uidPattern = "/view/[a-zA-Z0-9]*$";
 		Pattern pattern = Pattern.compile(uidPattern);
 		Matcher matcher = pattern.matcher(request.getRequestURI());
 		if (!matcher.matches()) {

@@ -12,18 +12,18 @@ public class ChartServiceSocketServlet extends WebSocketServlet {
 
 	private static final Logger log = LoggerFactory.getLogger(ChartServiceSocketServlet.class);
 
-	private final int uniqueChartId;
+	private final String chartId;
 
-	public ChartServiceSocketServlet(int uuid) {
+	public ChartServiceSocketServlet(String uuid) {
 		log.trace("ChartserviceSocketServlet constructor called ! ");
-		this.uniqueChartId = uuid;
+		this.chartId = uuid;
 	}
 
 	@Override
 	public void configure(WebSocketServletFactory factory) {
-		log.trace("CALL TO CONFIGURE__ {} ", uniqueChartId);
+		log.trace("CALL TO CONFIGURE__ {} ", chartId);
 		factory.getPolicy().setIdleTimeout(StaticVariables.WS_TIMEOUT);
-		factory.setCreator(new AdvancedWebSocketCreator(uniqueChartId));
+		factory.setCreator(new AdvancedWebSocketCreator(chartId));
 	}
 
 }

@@ -16,10 +16,10 @@ public class ChartServiceWebSocket {
 
 	private static final Logger log = LoggerFactory.getLogger(ChartServiceWebSocket.class);
 
-	private int uuid;
+	private String uuid;
 	private Session session;
 
-	public ChartServiceWebSocket(int uuid) {
+	public ChartServiceWebSocket(String uuid) {
 		this.uuid = uuid;
 	}
 
@@ -55,7 +55,7 @@ public class ChartServiceWebSocket {
 		}
 	}
 
-	public int getUniqueID() {
+	public String getUniqueID() {
 		return uuid;
 	}
 

@@ -23,12 +23,19 @@ public class DataViewer {
 	private static final Logger log = LoggerFactory.getLogger(DataViewer.class);
 
 	// Unique chart id, should be improved
-	private int uniqueChartID = (int) (System.currentTimeMillis() & 0xfffffff);
+	private String uniqueChartId = String.valueOf((int) (System.currentTimeMillis() & 0xfffffff));
 
 	private boolean enableFireBug = false;
 
 	public DataViewer() {
-		log.debug("DataViewer with id [{}] is being created! ", uniqueChartID);
+		log.debug("DataViewer with id [{}] is being created! ", uniqueChartId);
+		createWebsocketEndpoint();
+		runServer();
+	}
+
+	public DataViewer(String chartId) {
+		log.debug("DataViewer with id [{}] is being created! ", uniqueChartId);
+		this.uniqueChartId = chartId;
 		createWebsocketEndpoint();
 		runServer();
 	}
@@ -52,7 +59,7 @@ public class DataViewer {
 	}
 
 	private void createWebsocketEndpoint() {
-		ChartServiceServer.getInstance().addEndpoint(uniqueChartID);
+		ChartServiceServer.getInstance().addEndpoint(uniqueChartId);
 	}
 
 	/**
@@ -62,14 +69,14 @@ public class DataViewer {
 	 *            plotData
 	 */
 	public void updatePlot(PlotData plotData) {
-		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartID, plotData.serialize());
+		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, plotData.serialize());
 	}
 
 	/**
 	 * Removes all the traces from the DataViewer.
 	 */
 	public void resetPlot() {
-		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartID, new ResetData().serialize());
+		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, new ResetData().serialize());
 	}
 
 	/**
@@ -79,7 +86,7 @@ public class DataViewer {
 	 *            config
 	 */
 	public void updateConfiguration(DataViewerConfiguration config) {
-		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartID, config.serialize());
+		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, config.serialize());
 	}
 
 	/**
@@ -101,12 +108,12 @@ public class DataViewer {
 	/**
 	 * Get the Unique ID of the created Dataviewer.
 	 */
-	public int getUniqueID() {
-		return uniqueChartID;
+	public String getUniqueID() {
+		return uniqueChartId;
 	}
 
 	public String getUrl() {
-		return ChartServiceServer.getInstance().getDataViewerURL() + uniqueChartID;
+		return ChartServiceServer.getInstance().getDataViewerURL() + uniqueChartId;
 	}
 
 }

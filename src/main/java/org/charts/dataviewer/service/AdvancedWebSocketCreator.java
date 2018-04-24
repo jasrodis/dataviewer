@@ -1,8 +1,5 @@
 package org.charts.dataviewer.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.eclipse.jetty.websocket.servlet.ServletUpgradeRequest;
 import org.eclipse.jetty.websocket.servlet.ServletUpgradeResponse;
 import org.eclipse.jetty.websocket.servlet.WebSocketCreator;
@@ -15,9 +12,7 @@ public class AdvancedWebSocketCreator implements WebSocketCreator {
 
 	private ChartServiceWebSocket chartServiceWebSocket;
 
-	public Map<Integer, Integer> uniqueChartIdMap = new HashMap<>();
-
-	public AdvancedWebSocketCreator(int uuid) {
+	public AdvancedWebSocketCreator(String uuid) {
 		log.trace("AdvancedWebSocketCreator called with  UUID={}", uuid);
 		this.chartServiceWebSocket = new ChartServiceWebSocket(uuid);
 	}

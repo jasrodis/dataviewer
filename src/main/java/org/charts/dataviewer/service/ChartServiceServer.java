@@ -61,7 +61,7 @@ public class ChartServiceServer implements Runnable {
 		server.setHandler(handlers);
 	}
 
-	public void addEndpoint(int udID) {
+	public void addEndpoint(String udID) {
 		String endpoint = StaticVariables.WS_ENDPOINT + udID;
 		log.debug("Endpoint [{}] created for : {}", endpoint, udID);
 

@@ -1,4 +1,5 @@
 ![Smaller icon](Documentation/images/logo.png?raw=true "Dataviewer") 
+
 [![Build Status](https://travis-ci.org/jasrodis/dataviewer.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer)
 
 Dataviewer is an open-source data visualization tool for JavaFX.

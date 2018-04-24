@@ -1,4 +1,4 @@
-![Smaller icon](DataviewerDocumentation/images/logo.png?raw=true "Dataviewer") 
+![Smaller icon](Documentation/images/logo.png?raw=true "Dataviewer") 
 
 Dataviewer is an open-source data visualization tool for JavaFX.
 
@@ -143,7 +143,7 @@ See usage example below:
 
 ##### LineTrace
 
-![Smaller icon](DataviewerDocumentation/images/Line.png?raw=true "LineTrace example")
+![Smaller icon](Documentation/images/Line.png?raw=true "LineTrace example")
 
 Example:
 
@@ -167,7 +167,7 @@ Example with configuration object:
 
 ##### BarTrace
 
-![Smaller icon](DataviewerDocumentation/images/Bar.png?raw=true "BarTrace example")
+![Smaller icon](Documentation/images/Bar.png?raw=true "BarTrace example")
 
 Example:
 
@@ -191,7 +191,7 @@ Example with configuration object:
 
 ##### ScatterTrace
 
-![Smaller icon](DataviewerDocumentation/images/Scatter.png?raw=true "ScatterTrace example")
+![Smaller icon](Documentation/images/Scatter.png?raw=true "ScatterTrace example")
 
 Example:
 
@@ -215,7 +215,7 @@ Example with configuration object:
 
 ##### TimeSeriesTrace
 
-![Smaller icon](DataviewerDocumentation/images/TimeSeries.png?raw=true "ScatterTrace example")
+![Smaller icon](Documentation/images/TimeSeries.png?raw=true "ScatterTrace example")
 
 Example:
 
@@ -241,7 +241,7 @@ Example with configuration object:
 
 ##### CountourTrace
 
-![Smaller icon](DataviewerDocumentation/images/Contour.png?raw=true "Contour example")
+![Smaller icon](Documentation/images/Contour.png?raw=true "Contour example")
 
 Example:
 
@@ -268,7 +268,7 @@ Example with configuration object:
 
 ##### Histogram
 
-![Smaller icon](DataviewerDocumentation/images/Histogram.png?raw=true "HistogramTrace example")
+![Smaller icon](Documentation/images/Histogram.png?raw=true "HistogramTrace example")
 
 Example:
 
@@ -298,7 +298,7 @@ You can find plotly features here: [http://help.plot.ly/getting-to-know-the-plot
 
 Additional Features have been added so far :
 
-![Smaller icon](DataviewerDocumentation/images/Topmenu.png?raw=true "HistogramTrace example")
+![Smaller icon](Documentation/images/Topmenu.png?raw=true "HistogramTrace example")
 
 *   Change in logarithmic scales.
 *   Data visualization in table.
@@ -313,11 +313,11 @@ DataViewer uses the embedded Jetty Server in order to create Websocket Endpoints
 
 **Overview of the architecture:**
 
-![Smaller icon](DataviewerDocumentation/images/Architecture.png "Local Catalog Configuration")
+![Smaller icon](Documentation/images/Architecture.png "Local Catalog Configuration")
 
 #### Sequence diagram
 
-![Smaller icon](DataviewerDocumentation/images/Architecture2.png "Local Catalog Configuration")
+![Smaller icon](Documentation/images/Architecture2.png "Local Catalog Configuration")
 
 ## JavaFX Dataviewer Demo Project
 

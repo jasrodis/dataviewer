@@ -69,9 +69,11 @@ public class ChartsOpenedConnections {
 				log.error("IOException : ", ex);
 			}
 		}
-
-		log.debug("Keeped unsent message for : {}", target);
-		unsentMessagesMap.put(target, payload);
+		// TODO: This to be changed ! Should send messages for everyone !
+		if (openedSessions.get(target).isEmpty()) {
+			log.debug("Keeped unsent message for : {}", target);
+			unsentMessagesMap.put(target, payload);
+		}
 	}
 
 }

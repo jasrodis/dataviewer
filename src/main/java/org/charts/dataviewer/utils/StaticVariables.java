@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Static final Variables (configuration, icons, tooltip messages lie here)
+ * Static final Variables as final strings etc..
  * 
  * @author jasrodis
  */

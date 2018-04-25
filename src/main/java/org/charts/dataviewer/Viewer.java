@@ -3,6 +3,14 @@ package org.charts.dataviewer;
 import org.charts.dataviewer.api.config.DataViewerConfiguration;
 import org.charts.dataviewer.api.data.PlotData;
 
+/**
+ * Viewer interface is the API of the DataViewer.
+ *
+ * The user can update the plotData and configuration and can retrieve the URL
+ * of the chart or the UniqueId
+ * 
+ * @author jasrodis
+ */
 public interface Viewer {
 
 	/**
@@ -16,8 +24,9 @@ public interface Viewer {
 	/**
 	 * Updates plot data.
 	 * 
-	 * @param PlotData
-	 *            plotData
+	 * @param plotData
+	 *            the PlotData
+	 * 
 	 */
 	void updatePlot(PlotData plotData);
 
@@ -25,5 +34,15 @@ public interface Viewer {
 	 * Removes all the traces from the DataViewer.
 	 */
 	void resetPlot();
+
+	/**
+	 * Get the Unique ID of the created DataViewer.
+	 */
+	String getUniqueID();
+
+	/**
+	 * Get the URL of the DataViewer.
+	 */
+	String getUrl();
 
 }

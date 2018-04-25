@@ -13,9 +13,7 @@ import org.slf4j.LoggerFactory;
  * DataViewer class provides the creation of: 1) A Jetty WebServer (if not
  * created/running already). 2) A WebSocket Endpoint.
  * 
- * 
  * @author jasrodis
- *
  */
 public class DataViewer implements Viewer {
 
@@ -55,10 +53,6 @@ public class DataViewer implements Viewer {
 		}
 	}
 
-	protected String getUrlToLoad() {
-		return ChartServiceServer.getInstance().getDataViewerURL();
-	}
-
 	@Override
 	public void updatePlot(PlotData plotData) {
 		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, plotData.serialize());
@@ -74,16 +68,12 @@ public class DataViewer implements Viewer {
 		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, config.serialize());
 	}
 
-	/**
-	 * Get the Unique ID of the created Dataviewer.
-	 */
+	@Override
 	public String getUniqueID() {
 		return uniqueChartId;
 	}
 
-	/**
-	 * Get the URL of the chart.
-	 */
+	@Override
 	public String getUrl() {
 		return ChartServiceServer.getInstance().getDataViewerURL() + uniqueChartId;
 	}

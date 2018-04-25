@@ -3,7 +3,7 @@ package org.charts.dataviewer;
 import org.charts.dataviewer.api.config.DataViewerConfiguration;
 import org.charts.dataviewer.api.data.PlotData;
 
-interface Viewer {
+public interface Viewer {
 
 	/**
 	 * Update DataViewer Configuration.

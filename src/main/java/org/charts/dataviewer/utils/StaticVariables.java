@@ -1,11 +1,16 @@
 package org.charts.dataviewer.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Static final Variables (configuration, icons, tooltip messages lie here)
  * 
  * @author jasrodis
  */
 public class StaticVariables {
+
+	private static final Logger log = LoggerFactory.getLogger(StaticVariables.class);
 
 	private StaticVariables() {
 		// Protect from instantiating
@@ -26,5 +31,11 @@ public class StaticVariables {
 	public static final String HTML_FILE = "/webapp/html/charts.html";
 
 	public static final int WS_TIMEOUT = 10000000;
+
+	public static void startingServerLog() {
+		log.debug("*--------------------------------------------*");
+		log.debug("\tStarting Jetty Server..");
+		log.debug("*--------------------------------------------*");
+	}
 
 }

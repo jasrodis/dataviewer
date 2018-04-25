@@ -18,7 +18,7 @@ import javafx.scene.web.WebEngine;
  * @author jasrodis
  *
  */
-public class DataViewer {
+public class DataViewer implements Viewer {
 
 	private static final Logger log = LoggerFactory.getLogger(DataViewer.class);
 
@@ -62,29 +62,17 @@ public class DataViewer {
 		ChartServiceServer.getInstance().addEndpoint(uniqueChartId);
 	}
 
-	/**
-	 * Updates plot data.
-	 * 
-	 * @param PlotData
-	 *            plotData
-	 */
+	@Override
 	public void updatePlot(PlotData plotData) {
 		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, plotData.serialize());
 	}
 
-	/**
-	 * Removes all the traces from the DataViewer.
-	 */
+	@Override
 	public void resetPlot() {
 		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, new ResetData().serialize());
 	}
 
-	/**
-	 * Update DataViewer Configuration.
-	 * 
-	 * @param DataViewerConfiguration
-	 *            config
-	 */
+	@Override
 	public void updateConfiguration(DataViewerConfiguration config) {
 		ChartsOpenedConnections.getInstance().sendMessage(uniqueChartId, config.serialize());
 	}

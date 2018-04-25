@@ -15,8 +15,7 @@ public class CustomResourceHandler extends ResourceHandler {
 		try {
 			setBaseResource(Resource.newResource(resourceBase));
 		} catch (Exception e) {
-			log.warn(e.toString());
-			log.debug("{}", e);
+			log.warn("Error in CustomResourceHandler :", e);
 			throw new IllegalArgumentException(resourceBase.toExternalForm());
 		}
 	}

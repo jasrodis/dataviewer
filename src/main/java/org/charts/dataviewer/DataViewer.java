@@ -23,9 +23,9 @@ public class DataViewer {
 	private static final Logger log = LoggerFactory.getLogger(DataViewer.class);
 
 	// Unique chart id, should be improved
-	private String uniqueChartId = String.valueOf((int) (System.currentTimeMillis() & 0xfffffff));
+	protected String uniqueChartId = String.valueOf((int) (System.currentTimeMillis() & 0xfffffff));
 
-	private boolean enableFireBug = false;
+	protected boolean enableFireBug = false;
 
 	public DataViewer() {
 		log.debug("DataViewer with id [{}] is being created! ", uniqueChartId);
@@ -40,7 +40,7 @@ public class DataViewer {
 		runServer();
 	}
 
-	private void runServer() {
+	protected void runServer() {
 		if (!ChartServiceServer.getInstance().getServer().isRunning()) {
 			startingServerlog();
 			Thread serverThread = new Thread(ChartServiceServer.getInstance());
@@ -54,11 +54,11 @@ public class DataViewer {
 		}
 	}
 
-	private String getUrlToLoad() {
+	protected String getUrlToLoad() {
 		return ChartServiceServer.getInstance().getDataViewerURL();
 	}
 
-	private void createWebsocketEndpoint() {
+	protected void createWebsocketEndpoint() {
 		ChartServiceServer.getInstance().addEndpoint(uniqueChartId);
 	}
 
@@ -94,12 +94,12 @@ public class DataViewer {
 	 * 
 	 * @param engine
 	 */
-	private void enableFirebug(final WebEngine engine) {
+	protected void enableFirebug(final WebEngine engine) {
 		engine.executeScript(
 				"if (!document.getElementById('FirebugLite')){E = document['createElement' + 'NS'] && document.documentElement.namespaceURI;E = E ? document['createElement' + 'NS'](E, 'script') : document['createElement']('script');E['setAttribute']('id', 'FirebugLite');E['setAttribute']('src', 'https://getfirebug.com/' + 'firebug-lite.js' + '#startOpened');E['setAttribute']('FirebugLite', '4');(document['getElementsByTagName']('head')[0] || document['getElementsByTagName']('body')[0]).appendChild(E);E = new Image;E['setAttribute']('src', 'https://getfirebug.com/' + '#startOpened');}");
 	}
 
-	private void startingServerlog() {
+	protected void startingServerlog() {
 		log.debug("*--------------------------------------------*");
 		log.debug("\tStarting Jetty Server..");
 		log.debug("*--------------------------------------------*");

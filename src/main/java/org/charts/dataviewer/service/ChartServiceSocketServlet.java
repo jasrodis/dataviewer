@@ -15,7 +15,7 @@ public class ChartServiceSocketServlet extends WebSocketServlet {
 	private final String chartId;
 
 	public ChartServiceSocketServlet(String uuid) {
-		log.trace("ChartserviceSocketServlet constructor called ! ");
+		log.trace("ChartserviceSocketServlet with UUID={} ", uuid);
 		this.chartId = uuid;
 	}
 

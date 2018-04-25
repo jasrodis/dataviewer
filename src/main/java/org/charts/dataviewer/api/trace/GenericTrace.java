@@ -10,10 +10,9 @@ public abstract class GenericTrace<T> extends AbstractDataObject<T> {
 
 	protected TraceConfiguration traceConfig = new TraceConfiguration();
 
-	// Temporary solution, needs fix.
+	// TODO: Temporary solution, needs fix.
 	protected int uid = this.hashCode();
-	// protected int uid = (int) (System.currentTimeMillis() & 0xfffffff); This
-	// doesn't work for traces!!!
+	// protected int uid = (int) (System.currentTimeMillis() & 0xfffffff);
 
 	protected String xAxis = "";
 	protected String yAxis = "";

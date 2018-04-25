@@ -23,16 +23,16 @@ public class DataViewer implements Viewer {
 	protected String uniqueChartId = String.valueOf((int) (System.currentTimeMillis() & 0xfffffff));
 
 	public DataViewer() {
-		log.debug("DataViewer with id [{}] is being created! ", uniqueChartId);
 		createWebsocketEndpoint();
 		runServer();
+		log.info("DataViewer created @ {}", getUrl());
 	}
 
 	public DataViewer(String chartId) {
-		log.debug("DataViewer with id [{}] is being created! ", uniqueChartId);
 		this.uniqueChartId = chartId;
 		createWebsocketEndpoint();
 		runServer();
+		log.info("DataViewer created @ {}", getUrl());
 	}
 
 	protected void createWebsocketEndpoint() {

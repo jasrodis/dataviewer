@@ -19,6 +19,14 @@ Maven installation :
         <artifactId>dataviewer</artifactId>
         <version>{latest.version}</version>
     </dependency>
+    
+    or JitPack
+    
+    <dependency>
+		<groupId>com.github.jasrodis</groupId>
+		<artifactId>dataviewer</artifactId>
+		<version>-SNAPSHOT</version>
+	</dependency>
 
 ## API
 

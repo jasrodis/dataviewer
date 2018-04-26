@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jasrodis/dataviewer.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer)
 
+Do you want to create a chart and easily share it with a link ? Check out this project!
+
 Dataviewer is an open-source data visualization tool for Java.
 
 It is based on [Plotly.js](https://plot.ly/javascript/), [Jetty](http://www.eclipse.org/jetty/) and Websockets.

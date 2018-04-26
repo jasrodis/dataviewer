@@ -10,17 +10,9 @@ It is based on [Plotly.js](https://plot.ly/javascript/), [Jetty](http://www.ecli
 
 *   Recent version of Java installed (Jdk8+).
 
-## Installation
+## To install the library to your project!
 
-Maven installation :
-
-    <dependency>
-        <groupId>org.charts</groupId>
-        <artifactId>dataviewer</artifactId>
-        <version>{latest.version}</version>
-    </dependency>
-    
-    or JitPack
+Maven JitPack installation :
     
     <dependency>
 		<groupId>com.github.jasrodis</groupId>

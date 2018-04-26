@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 public class HtmlServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7441020952191793260L;
-	private static final Logger log = LoggerFactory.getLogger(HtmlServlet.class.getName());
+	private static final Logger log = LoggerFactory.getLogger(HtmlServlet.class);
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

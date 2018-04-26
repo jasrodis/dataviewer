@@ -296,18 +296,6 @@ Example with configuration object:
 
 You can find plotly features here: [http://help.plot.ly/getting-to-know-the-plotly-modebar/](http://help.plot.ly/getting-to-know-the-plotly-modebar/)
 
-### Dataviewer features
-
-Additional Features have been added so far :
-
-![Smaller icon](Documentation/images/Topmenu.png?raw=true "HistogramTrace example")
-
-*   Change in logarithmic scales.
-*   Data visualization in table.
-*   Show/Move legend.
-*   Export data to CSV.
-*   Change trace type.
-*   Date & time of the latest plot udpate
 
 ## Architecture Overview
 

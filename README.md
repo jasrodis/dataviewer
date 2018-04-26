@@ -12,6 +12,11 @@ It is based on [Plotly.js](https://plot.ly/javascript/), [Jetty](http://www.ecli
 
 Extensive usage of the DataViewer with examples can be found : [http://github.com/jasrodis/dataviewer-example](http://github.com/jasrodis/dataviewer-example)
 
+## JavaFX wrapper library
+
+There is a JavaFX wrapper library that displays your charts to both JavaFX and the web!
+* JavaFxDataViewer with examples can be found : [http://github.com/jasrodis/javafx-dataviewer-example](http://github.com/jasrodis/javafx-dataviewer-example)
+
 ## Requirements
 
 *   Recent version of Java installed (Jdk8+).

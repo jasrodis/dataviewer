@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/jasrodis/dataviewer.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer)
 
-Dataviewer is an open-source data visualization tool for JavaFX.
+Dataviewer is an open-source data visualization tool for Java.
 
 It is based on [Plotly.js](https://plot.ly/javascript/), [Jetty](http://www.eclipse.org/jetty/) and Websockets.
 
@@ -321,6 +321,6 @@ DataViewer uses the embedded Jetty Server in order to create Websocket Endpoints
 
 ![Smaller icon](Documentation/images/Architecture2.png "Local Catalog Configuration")
 
-## JavaFX Dataviewer Demo Project
+## Dataviewer Demo Project
 
 Extensive usage of the dataviewer with examples can be found : [http://github.com/jasrodis/dataviewer-demo](http://github.com/jasrodis/dataviewer-demo)

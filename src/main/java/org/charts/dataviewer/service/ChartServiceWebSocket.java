@@ -26,6 +26,7 @@ public class ChartServiceWebSocket {
 	@OnWebSocketConnect
 	public void handleConnect(Session session) {
 		this.session = session;
+		log.debug("@OnWebSocketConnect | Session id :  {}", this.hashCode());
 		ChartsOpenedConnections.getInstance().addConnection(this);
 	}
 
@@ -38,6 +39,7 @@ public class ChartServiceWebSocket {
 	@OnWebSocketMessage
 	public void handleMessage(String message) {
 		log.debug("@OnWebSocketMessage | Received message :  {} @ {}", message, this.hashCode());
+		ChartsOpenedConnections.getInstance().resendLastMsg(message, getSession()); // Message is uid
 	}
 
 	@OnWebSocketError

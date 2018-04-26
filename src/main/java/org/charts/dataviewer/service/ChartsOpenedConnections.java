@@ -1,9 +1,8 @@
 package org.charts.dataviewer.service;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.slf4j.Logger;
@@ -18,42 +17,23 @@ public class ChartsOpenedConnections {
 
 	private static final ChartsOpenedConnections INSTANCE = new ChartsOpenedConnections();
 
+	private Multimap<String, Session> openedSessions = ArrayListMultimap.create();
+
+	private Map<String, String> lastPlotData = new HashMap<>();
+	private Map<String, String> lastConfig = new HashMap<>();
+
 	public static ChartsOpenedConnections getInstance() {
 		return INSTANCE;
 	}
 
 	protected ChartsOpenedConnections() {
+		// Protected
 	}
-
-	private Multimap<String, Session> openedSessions = ArrayListMultimap.create();
-	private Multimap<String, String> unsentMessagesMap = ArrayListMultimap.create();
 
 	public synchronized void addConnection(ChartServiceWebSocket socket) {
 		String udId = socket.getUniqueID();
 		log.debug("Adding in multimap : {} ", udId);
 		openedSessions.put(udId, socket.getSession());
-		if (!(unsentMessagesMap.get(socket.getUniqueID()).isEmpty())) {
-			final Multimap<String, String> tempMessages = ArrayListMultimap.create(unsentMessagesMap);
-			Collection<String> collection = new HashSet<>(tempMessages.get(udId));
-			if (!collection.isEmpty()) {
-				for (Iterator<String> it = collection.iterator(); it.hasNext();) {
-					String payload = it.next();
-					log.debug("Sent {} ", udId);
-					sendMessage(udId, payload);
-				}
-			}
-
-			// Resend only config messages.
-			final Multimap<String, String> tempMessages2 = ArrayListMultimap.create(unsentMessagesMap);
-			Collection<String> collection2 = new HashSet<>(tempMessages2.get(udId));
-			if (!collection2.isEmpty()) {
-				for (Iterator<String> it = collection2.iterator(); it.hasNext();) {
-					String payload = it.next();
-					if (payload.contains("PAYLOAD"))
-						unsentMessagesMap.remove(udId, payload);
-				}
-			}
-		}
 	}
 
 	public synchronized void closeConnection(ChartServiceWebSocket socket) {
@@ -61,18 +41,33 @@ public class ChartsOpenedConnections {
 		openedSessions.remove(socket.getUniqueID(), socket.getSession());
 	}
 
+	// Maybe should be sync
 	public void sendMessage(String target, String payload) {
 		for (Session session : openedSessions.get(target)) {
 			try {
-				session.getRemote().sendString(payload);
+				if (session.isOpen()) {
+					session.getRemote().sendString(payload);
+				}
 			} catch (IOException ex) {
 				log.error("IOException : ", ex);
 			}
 		}
-		// TODO: This to be changed ! Should send messages for everyone !
-		if (openedSessions.get(target).isEmpty()) {
-			log.debug("Keeped unsent message for : {}", target);
-			unsentMessagesMap.put(target, payload);
+		if (payload.contains("PAYLOAD")) {
+			lastPlotData.put(target, payload);
+		} else {
+			lastConfig.put(target, payload);
+		}
+	}
+
+	// Maybe should be sync
+	public void resendLastMsg(String target, Session session) {
+		try {
+			if (session.isOpen()) {
+				session.getRemote().sendString(lastPlotData.get(target));
+				session.getRemote().sendString(lastConfig.get(target));
+			}
+		} catch (IOException ex) {
+			log.error("IOException : ", ex);
 		}
 	}
 

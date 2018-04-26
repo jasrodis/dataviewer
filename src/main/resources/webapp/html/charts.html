@@ -24,7 +24,7 @@
 
 			/*
 			 *****************************************************************************************************
-			// Plotly.js 
+			// Plotly.js
 			 *****************************************************************************************************
 			 */
 
@@ -250,7 +250,7 @@
 			// called when socket connection established
 			ws.onopen = function() {
 				console.log('Connected to chart service!');
-				sendToServer('Connected ' + connectURL);
+				sendToServer(connectURL.split("/")[4]);
 			};
 
 			// called when a message received from server

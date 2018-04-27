@@ -1,6 +1,8 @@
 ![Smaller icon](Documentation/images/logo.png?raw=true "Dataviewer") 
 
-[![Build Status](https://travis-ci.org/jasrodis/dataviewer.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer)  [![](https://jitpack.io/v/jasrodis/dataviewer.svg)](https://jitpack.io/#jasrodis/dataviewer)
+[![Build Status](https://travis-ci.org/jasrodis/dataviewer.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer)  [![](https://jitpack.io/v/jasrodis/dataviewer.svg)](https://jitpack.io/#jasrodis/dataviewer) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 
 Do you want to create a chart and easily share it with a link ? Check out this project!
 

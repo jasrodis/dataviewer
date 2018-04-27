@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jasrodis/dataviewer.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer)
 
+[![](https://jitpack.io/v/jasrodis/dataviewer.svg)](https://jitpack.io/#jasrodis/dataviewer)
+
 Do you want to create a chart and easily share it with a link ? Check out this project!
 
 Dataviewer is an open-source data visualization tool for Java.

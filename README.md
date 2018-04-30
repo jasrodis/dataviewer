@@ -28,9 +28,9 @@ Maven JitPack installation:
 
 ```xml
 <dependency>
-  <groupId>com.github.jasrodis</groupId>
-  <artifactId>dataviewer</artifactId>
-  <version>-SNAPSHOT</version>
+    <groupId>com.github.jasrodis</groupId>
+    <artifactId>dataviewer</artifactId>
+    <version>-SNAPSHOT</version>
 </dependency>
 ```
 

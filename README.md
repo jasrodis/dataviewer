@@ -18,6 +18,8 @@ There is a JavaFX wrapper library that displays your charts to both JavaFX and t
 
 * JavaFxDataViewer with examples can be found: [http://github.com/jasrodis/javafx-dataviewer-example](http://github.com/jasrodis/javafx-dataviewer-example)
 
+* Documentation : https://github.com/jasrodis/javafx-dataviewer-wrapper
+
 ## Requirements
 
 * Recent version of Java installed (Jdk8+).

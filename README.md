@@ -17,13 +17,13 @@
 
 <p align="center">
   <a href="https://travis-ci.org/jasrodis/dataviewer">
-    <img alt="Gitter" src="https://travis-ci.org/jasrodis/dataviewer.svg?branch=master">
+    <img alt="travis" src="https://travis-ci.org/jasrodis/dataviewer.svg?branch=master">
   </a>
   <a href="https://jitpack.io/#jasrodis/dataviewer">
-    <img alt="Travis" src="https://jitpack.io/v/jasrodis/dataviewer.svg?style=flat-square">
+    <img alt="jitpack" src="https://jitpack.io/v/jasrodis/dataviewer.svg?style=flat-square">
   </a>
   <a href="https://opensource.org/licenses/MIT">
-    <img alt="Codecov" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square">
+    <img alt="licence" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square">
   </a>
 </p>
 

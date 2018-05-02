@@ -1,6 +1,35 @@
-![Smaller icon](Documentation/images/logo.png?raw=true 'Dataviewer')
 
-[![Build Status](https://travis-ci.org/jasrodis/dataviewer.svg?branch=master)](https://travis-ci.org/jasrodis/dataviewer) [![](https://jitpack.io/v/jasrodis/dataviewer.svg)](https://jitpack.io/#jasrodis/dataviewer) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<p align="center">
+	<img align="center" src="Documentation/images/logo.png?raw=true"/>
+</p>
+
+
+<h2 align="center">Exposing charts from Java to the Web!</h2>
+
+<p align="center">
+  <em>
+  Java
+  · Charts
+  · Websockets
+  · Jetty
+  · Web
+</p>
+
+<p align="center">
+  <a href="https://travis-ci.org/jasrodis/dataviewer">
+    <img alt="Gitter" src="https://travis-ci.org/jasrodis/dataviewer.svg?branch=master">
+  </a>
+  <a href="https://jitpack.io/#jasrodis/dataviewer">
+    <img alt="Travis" src="https://jitpack.io/v/jasrodis/dataviewer.svg?style=flat-square">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img alt="Codecov" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square">
+  </a>
+</p>
+
+
+
+## Intro
 
 Do you want to create a chart and easily share it with a link? Check out this project!
 
@@ -8,11 +37,11 @@ Dataviewer is an open-source data visualization tool for Java.
 
 It is based on [Plotly.js](https://plot.ly/javascript/), [Jetty](http://www.eclipse.org/jetty/) and Websockets.
 
-## Dataviewer Examples
+## Example Project
 
 Extensive usage of the DataViewer with examples can be found: [http://github.com/jasrodis/dataviewer-example](http://github.com/jasrodis/dataviewer-example)
 
-## JavaFX wrapper library
+## JavaFX 
 
 There is a JavaFX wrapper library that displays your charts to both JavaFX and the web!
 
@@ -35,6 +64,8 @@ Maven JitPack installation:
     <version>-SNAPSHOT</version>
 </dependency>
 ```
+
+---
 
 ## API
 
@@ -342,11 +373,16 @@ histogramConfig.setTraceColour(TraceColour.RED);
 histogramTrace.setConfiguration(histogramConfig);
 ```
 
+---
+
+
 ## Features
 
 ### plotly.js features
 
 You can find plotly features here: [http://help.plot.ly/getting-to-know-the-plotly-modebar/](http://help.plot.ly/getting-to-know-the-plotly-modebar/)
+
+---
 
 ## Architecture Overview
 

@@ -72,7 +72,7 @@ public class TraceConfiguration {
 
 	/**
 	 * @return the trace mode
-	 * @see the TraceMode
+	 * @see TraceMode
 	 */
 	public TraceMode getTraceMode() {
 		return traceMode;
@@ -90,7 +90,7 @@ public class TraceConfiguration {
 
 	/**
 	 * @return the trace visibility (true, false, legendonly)
-	 * @see the TraceVisibility
+	 * @see TraceVisibility
 	 */
 	public TraceVisibility getTraceVisibility() {
 		return traceVisibility;

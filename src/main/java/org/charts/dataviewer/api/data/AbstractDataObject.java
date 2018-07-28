@@ -22,7 +22,7 @@ public class AbstractDataObject<T> {
 	/**
 	 * Set the x axis array
 	 * 
-	 * @param xArray[] 
+	 * @param xArray
 	 */
 	public void setxArray(T[] xArray) {
 		this.xArray = xArray;
@@ -40,7 +40,7 @@ public class AbstractDataObject<T> {
 	/**
 	 * Set the x axis array
 	 * 
-	 * @param yArray[] 
+	 * @param yArray
 	 */
 	public void setyArray(T[] yArray) {
 		this.yArray = yArray;
@@ -58,7 +58,7 @@ public class AbstractDataObject<T> {
 	/**
 	 * Set the z axis array
 	 * 
-	 * @param zArray[] 
+	 * @param zArray
 	 */
 	public void setzArray(T[] zArray) {
 		this.zArray = zArray;

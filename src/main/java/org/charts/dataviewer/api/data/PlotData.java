@@ -1,11 +1,11 @@
 package org.charts.dataviewer.api.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.google.gson.Gson;
 import org.charts.dataviewer.api.trace.GenericTrace;
 
-import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A Container of all the Traces to be plotted.
@@ -57,9 +57,7 @@ public class PlotData {
 	 * @param traces
 	 */
 	public void addAll(GenericTrace<?>... traces) {
-		for (GenericTrace<?> trace : traces) {
-			this.traces.add(trace);
-		}
+		this.traces.addAll(Arrays.asList(traces));
 	}
 
 	/**

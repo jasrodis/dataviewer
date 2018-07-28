@@ -98,13 +98,6 @@
 			<version>2.5</version>
 		</dependency>
 
-		<!-- Guava -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>19.0</version>
-		</dependency>
-
 	</dependencies>
 </project>
 

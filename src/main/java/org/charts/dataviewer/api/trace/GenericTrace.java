@@ -72,7 +72,7 @@ public abstract class GenericTrace<T> extends AbstractDataObject<T> {
 
 	/**
 	 * @return the trace mode
-	 * @see TraceMode
+	 * @see the TraceMode
 	 */
 	public TraceMode getTraceMode() {
 		return traceConfig.traceMode;
@@ -116,7 +116,7 @@ public abstract class GenericTrace<T> extends AbstractDataObject<T> {
 
 	/**
 	 * @return the trace visibility (true, false, legendonly)
-	 * @see TraceVisibility
+	 * @see the TraceVisibility
 	 */
 	public TraceVisibility getTraceVisibility() {
 		return traceConfig.traceVisibility;

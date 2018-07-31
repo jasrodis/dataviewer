@@ -8,7 +8,7 @@ import org.charts.dataviewer.api.trace.GenericTrace;
 import com.google.gson.Gson;
 
 /**
- * A Container of all the Traces to be plotted.
+ * A Container of all the traces to be plotted.
  * 
  * @author jasrodis
  */
